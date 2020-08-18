@@ -1,0 +1,12 @@
+﻿@model FreeDocs.Models.User
+@{
+    ViewBag.Title = "Регистрация";
+}
+@{Html.BeginForm("RegAction", "Home", FormMethod.Post);}
+
+<p>Ваш Логин: </p>
+<input type="text" name="Login" value="@Model.Login" />
+<p>Ваш Пароль: </p>
+<input type="text" name="Password" value="@Model.Password" />
+<input type="submit" value="Отправить" />
+@{Html.EndForm();}
