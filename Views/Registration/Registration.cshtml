@@ -1,0 +1,19 @@
+﻿@model FreeDocs.Models.User
+@{
+    ViewBag.Title = "Регистрация";
+}
+@{Html.BeginForm("RegForm", "Registration", FormMethod.Post);}
+
+<p>Ваш Логин: </p>
+<span id="_loginStatus"></span>
+<br />
+<input type="text" name="Login" value="@Model.Login" onchange="LoginCheck(this)" />
+<p>Ваш Пароль: </p>
+<input type="text" name="Password" value="@Model.Password" />
+<p>E-mail</p>
+<span id="_mailStatus"></span>
+<br />
+<input type="text" name="Email" value="@Model.Mail" onchange="MailCheck(this)" />
+<input type="submit" value="Отправить" />
+<script src="@Url.Content("~/Scripts/SiteFunction.js")"></script>
+@{Html.EndForm();}

@@ -23,6 +23,7 @@ namespace FreeDocs
                 {
                     db.Database.EnsureCreated();
                 }
+                
             }
         }
     }
