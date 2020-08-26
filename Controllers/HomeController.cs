@@ -1,12 +1,9 @@
-﻿using FreeDocs.Models;
+﻿using FreeDocs.Controllers._WorkWithDocuments;
+using FreeDocs.Models;
 using FreeDocs.Models.Additional;
 using FreeDocs.Models.EFConfigs;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Security.Policy;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FreeDocs.Controllers
@@ -14,11 +11,19 @@ namespace FreeDocs.Controllers
     public class HomeController : Controller
     {
         ApplicationContext db;
+        FindBookMarks fbm;
         public ActionResult Index()
         {
             db = new ApplicationContext();
             List<Documents> _documents = db.Documents.ToList();
             ViewBag.document = _documents;
+            fbm = new FindBookMarks();
+            fbm.Run(TypeDocs._blank, "zayavlenie-na-otpusk.docx");
+            //using(WordprocessingDocument _wpd = WordprocessingDocument.Open(filepath, true))
+            //{
+            //    Body _bodyDoc = _wpd.MainDocumentPart.Document.Body;
+
+            //}
             #region ForTest
             //string path1 = "~/Documents/_act";
             //string path2 = "~/Documents/_agreement";

@@ -13,6 +13,10 @@ namespace FreeDocs.Models
         /// </summary>
         public int ID { get; set; }
         /// <summary>
+        /// Имя документа для сайта
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
         /// Название документа
         /// </summary>
         public string Name { get; set; }
@@ -32,5 +36,9 @@ namespace FreeDocs.Models
         /// Описание документа
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// Путь до изображения
+        /// </summary>
+        public string ImgURL { get; set; }
     }
 }

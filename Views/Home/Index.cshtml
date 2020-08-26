@@ -1,4 +1,5 @@
 ﻿@model List<FreeDocs.Models.Documents>
+
 @{
     ViewBag.Title = "3Docs - Все документы и шаблоны в одном месте";
 }
@@ -6,13 +7,52 @@
     <p>Поиск документов:</p>
     <input type="search" name="search" value="" />
 </div>
+<div class="col-12 col-md-12 col-lg-12" style="text-align: center;">
+    <h2>Все документы - в одном месте!</h2>
+</div>
+@foreach (var doc in Model)
+{
+<div class="col-lg-3">
+    <div class="card" style="width: 18rem;">
+        <img src="~/@doc.ImgURL" class="card-img-top" alt="..." style="height: 10em;">
+        <div class="card-body">
+            <h5 class="card-title">@doc.Title</h5>
+            <p class="card-text">@doc.Description</p>
+            <a href="~/@doc.Path@doc.Name" class="btn btn-primary">Скачать</a>
+        </div>
+    </div>
+</div>
+}
+
 <div class="col-12 col-md-12 col-lg-12">
-    @foreach(var doc in Model)
-    {
-        <p>Документ: @doc.Name</p>
-        <p>Описание: @doc.Description</p>
-        <p>Дата загрузки: @doc.Date</p>
-        <p>Тип документа: @doc.Type</p>
-        <a href="~/@doc.Path@doc.Name">Скачать</a>
-    }
+    <div class="parallax-container" style="height: 14em;">
+        <div class="parallax"><img src="~/Content/img/documents.jpg"></div>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 text-center">
+    <h4>Используйте готовый редактор, для заполнения документов!</h4>
+    <h5>Попробуйте! Это легко!</h5>
+    <hr align="center" size="50" width="50%" style="border-top: 1px solid #000000;" />
+    <div class="col-6 col-md-6 col-lg-6" style="text-align:left;">
+        <label>‌«[NameCompany]»‌ - Обратите внимание в документе тоже есть подобная метка</label>
+        <input type="text" placeholder="Введите сюда название компании" />
+        <label>‌[FIO]‌‌ - Обратите внимание в документе тоже есть подобная метка</label>
+        <input type="text" placeholder="Введите сюда ФИО руководителя" />
+        <label>‌‌‌[FIOClient]‌‌ - Обратите внимание в документе тоже есть подобная метка</label>
+        <input type="text" placeholder="Введите сюда Вашу фамилию" />
+        <label>‌[date]‌‌ - Обратите внимание в документе тоже есть подобная метка</label>
+        <input type="date" />
+        <label>‌[date_end]‌ - Обратите внимание в документе тоже есть подобная метка</label>
+        <input type="date" />
+        <label>‌‌[dayVac]‌‌ - Обратите внимание в документе тоже есть подобная метка</label>
+        <input type="date" />
+        <label>‌[dateToday]‌ - Обратите внимание в документе тоже есть подобная метка</label>
+        <input type="date" />
+        <br />
+        <button type="submit" class="btn btn-success" >Получить документ</button>
+
+    </div>
+    <div class="col-12 col-md-12 col-lg-12">
+        <img src="~/Content/img/doc_view.png" />
+    </div>
 </div>
